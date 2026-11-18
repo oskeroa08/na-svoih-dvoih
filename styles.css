@@ -101,10 +101,10 @@ h2{font-size:clamp(26px,3vw,34px);font-weight:800;line-height:1.15;text-transfor
 /* v3: услуги-ссылки, команда с общим фото, отзывы */
 .features{margin-top:16px}
 a.feature{display:block;transition:transform .2s,background .2s}a.feature:hover{transform:translateY(-2px)}a.feature:hover h3{color:var(--blue-mid)}
-.team-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;margin-top:26px}
-.team-list{display:grid;gap:22px;align-content:start}
+.team-layout{display:grid;grid-template-columns:1fr minmax(300px,380px);gap:22px;align-items:stretch;margin-top:26px}
+.team-list{display:grid;grid-auto-rows:1fr;gap:22px}
 .team-list .person-body{padding:24px 26px 28px}.team-list .person h3{font-size:18px}.team-list .person-body p:last-child{font-size:14px}
-.team-photo{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#c9dbea;min-height:360px}.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.team-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#c9dbea;min-height:440px}.team-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
 .reviews{margin-top:44px}.reviews .lead{margin-bottom:22px}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
 .video-card{margin:0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}.video-card video,.video-card iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}.video-card figcaption{padding:12px 16px;font-size:13px;font-weight:600;color:var(--blue-deep)}
@@ -112,4 +112,16 @@ a.feature{display:block;transition:transform .2s,background .2s}a.feature:hover{
 .review-link{display:flex;flex-direction:column;gap:6px;background:#fff;border-radius:16px;padding:22px 26px;box-shadow:var(--shadow);border-left:5px solid var(--accent);transition:transform .2s}.review-link:hover{transform:translateY(-2px)}
 .review-link span{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.review-link strong{font-size:16px;line-height:1.3;color:var(--blue-deep)}.review-link em{font-style:normal;font-size:13px;font-weight:600;color:var(--blue-mid)}
 .configured-contact a[hidden]{display:none}
-@media(max-width:1000px){.team-layout{grid-template-columns:1fr}.team-photo{min-height:0;aspect-ratio:4/3}.team-photo img{object-position:center 30%}.review-links{grid-template-columns:1fr}}
+@media(max-width:1000px){.team-layout{grid-template-columns:1fr}.team-list{grid-auto-rows:auto}.team-photo{min-height:0;aspect-ratio:4/3}.team-photo img{object-position:center 30%}.review-links{grid-template-columns:1fr}}
+
+/* отзывы-карточки */
+.rating-badge{display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;background:#fff;border-radius:999px;padding:8px 20px 8px 8px;box-shadow:var(--shadow)}.rating-badge strong{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-size:20px;font-weight:800}.rating-badge span{font-size:13px;font-weight:600;color:var(--blue-deep)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
+.review-card{position:relative;margin:0;display:flex;flex-direction:column;justify-content:space-between;gap:22px;background:#fff;border-radius:18px;padding:52px 26px 24px;box-shadow:var(--shadow)}
+.review-card::before{content:"\201C";position:absolute;top:6px;left:20px;font-size:64px;line-height:1;font-weight:800;color:var(--accent);opacity:.9}
+.review-card blockquote{margin:0;font-size:15px;line-height:1.6;font-weight:600;color:var(--blue-deep)}
+.review-card figcaption{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.review-card .avatar{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue-mid),var(--blue));color:#fff;font-weight:800}
+.review-card figcaption span:last-child{display:flex;flex-direction:column;line-height:1.3}.review-card strong{font-size:14px;color:var(--blue-deep)}.review-card small{font-size:11px;color:var(--muted)}
+@media(max-width:1000px){.review-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.review-grid{grid-template-columns:1fr}}
